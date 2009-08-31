@@ -13,10 +13,7 @@ Takeoff is my personal take on a Rails barebone application. I'm using it myself
 
 ## TODO
 
-* gitignore
-* add haml/sass
 * add authlogic
 * collect custom helpers
 * proper 404/500 pages - in haml
-* main controller
 * trim down tests
