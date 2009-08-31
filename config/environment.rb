@@ -12,3 +12,6 @@ Rails::Initializer.run do |config|
   # TODO specify default locale
   config.i18n.default_locale = :en
 end
+
+
+Sass::Plugin.options[:template_location] = RAILS_ROOT + "/app/stylesheets"
