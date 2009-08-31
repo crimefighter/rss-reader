@@ -15,3 +15,5 @@ end
 
 
 Sass::Plugin.options[:template_location] = RAILS_ROOT + "/app/stylesheets"
+
+GOOGLE_WEBMASTER_CODES = ['google0000000000000000']
