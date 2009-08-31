@@ -3,3 +3,5 @@ db/test.sqlite3
 log/*.log
 tmp/*
 *.swp
+
+public/stylesheets/style.css
