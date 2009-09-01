@@ -1,6 +1,16 @@
 # Takeoff 
 
-Takeoff is my personal take on a Rails barebone application. I'm using it myself, feel free to fork if you like it.
+Takeoff is my personal take on a Rails barebone application. I''m using it myself, feel free to fork if you like it.
+
+## Features
+
+* HAML & SASS
+* jQuery on board
+* Eric Meyer''s CSS Reset
+* Task to clear Sass-generated stylesheets
+* Route to root 
+* Route for Google Webmasters validation files
+* Boilerplate application layout
 
 ## Guidelines
 
