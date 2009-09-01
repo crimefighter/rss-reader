@@ -1,1 +1,1 @@
-ActionView::Helpers::AssetTagHelper.register_javascript_expansion :defaults_jquery => ['jquery', 'application']
+ActionView::Helpers::AssetTagHelper.register_javascript_expansion :defaults_jquery => ['jquery', 'takeoff', 'application']
