@@ -13,6 +13,8 @@ Takeoff is my personal take on a Rails barebone application. I'm using it myself
 * Boilerplate application layout, including Google Analytics code (`google_analytics 'your_code_here'`)
 * js-model helpers: `js_id_for @some_model` returns `some_models_123`; `$('#some_models_123').modelId()` returns 123
 * require resource helpers - `require_javascript` and `require_css` - which include resources only once
+* metatag helpers - `meta :description, 'my description'` or block form `meta :description do ... end`; prevents duplicate tags
+* title tag helpers - `title page_title` to set the title, `h1_tag page_title` to set the title &amp; write an H1 tag, `title_tag` to write the title to head
 
 ## Guidelines
 
@@ -26,9 +28,7 @@ Takeoff is my personal take on a Rails barebone application. I'm using it myself
 ## TODO
 
 * proper helper to make a title tag
-* something to deal with metatags (you need to set them from templates)
 * add authlogic
-* collect custom helpers
 * proper 404/500 pages - in haml
 * trim down tests
 * use http://github.com/toretore/javascript_routes/tree/master to get routes in javascript

@@ -1,9 +1,15 @@
 !!!
 %html
   %head
+    =title_tag :suffix => 'Takeoff!'
+
     %meta{'http-equiv' => 'Content-type', :content => 'text/html; charset=UTF-8'}
+    =meta :description, 'default description'
+    =meta :keywords, 'default keywords'
+    =yield :meta
+
     %link{:rel => 'Shortcut icon', :href => '/favicon.ico'} 
-    
+   
     =stylesheet_link_tag 'style'
     =yield :css
 

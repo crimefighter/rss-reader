@@ -19,6 +19,7 @@ module ApplicationHelper
   end
 
 
+  #have yield :javascript in your head
   def require_javascript javascript_resource_id
     @required_javascript_resources ||= []
     unless @required_javascript_resources.include? javascript_resource_id
@@ -30,6 +31,7 @@ module ApplicationHelper
     ''
   end
 
+  #have yield :css in your head
   def require_css css_resource_id
     @required_css_resources ||= []
     unless @required_css_resources.include? css_resource_id
@@ -39,5 +41,47 @@ module ApplicationHelper
       @required_css_resources << css_resource_id
     end
     ''
+  end
+
+  #have yield :meta in your head
+  def meta type, content = '', &block
+    @meta_tags ||= []
+   
+    unless @meta_tags.include? type
+      content_for :meta do
+        "<meta name=\"#{type.to_s}\" content=\"#{h(block.nil? ? content : yield)}\" />\n"
+      end
+      @meta_tags << type
+    end
+    ''
+  end
+
+  def title title
+    @title_parts ||= []
+    @title_parts.unshift h(title)
+    ''
+  end
+
+  def h1_tag title, html_options = {}
+    self.title(title)
+
+    attributes = []
+
+    html_options.each do |key,value|
+      attributes << "#{key.to_s}=\"#{value.to_s}\""
+    end
+
+    "<h1#{attributes.empty? ? '' : ' '+attributes.join(' ')}>#{h(title)}</h1>"
+  end
+
+  def title_tag options = {}
+    @title_parts ||= []
+
+
+    @title_parts.unshift options[:prefix] unless options[:prefix].nil?
+    @title_parts << options[:suffix] unless options[:suffix].nil?
+    separator = options.fetch(:separator, ' &mdash; ')
+
+    "<title>#{@title_parts.join separator}</title>"
   end
 end
