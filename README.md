@@ -31,3 +31,4 @@ Takeoff is my personal take on a Rails barebone application. I'm using it myself
 * collect custom helpers
 * proper 404/500 pages - in haml
 * trim down tests
+* use http://github.com/toretore/javascript_routes/tree/master to get routes in javascript
