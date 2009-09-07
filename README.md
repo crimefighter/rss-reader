@@ -5,13 +5,13 @@ Takeoff is my personal take on a Rails barebone application. I'm using it myself
 ## Features
 
 * HAML &amp; SASS
-* jQuery on board
+* jQuery
 * Eric Meyer's CSS Reset
-* Task to clear Sass-generated stylesheets
-* Route to root 
-* Route for Google Webmasters validation files
-* Boilerplate application layout, including Google Analytics code
-* js-model helpers: `js_id_for @some_model` returns `some_models_123`; `$(#some_models_123).modelId()` returns 123
+* Task to clear Sass-generated stylesheets: `rake sass:clear`
+* Route to root, and a `MainController`
+* Route for Google Webmasters validation files, put your codes to `config/environment.rb`
+* Boilerplate application layout, including Google Analytics code (`google_analytics 'your_code_here'`)
+* js-model helpers: `js_id_for @some_model` returns `some_models_123`; `$('#some_models_123').modelId()` returns 123
 * require resource helpers - `require_javascript` and `require_css` - which include resources only once
 
 ## Guidelines
