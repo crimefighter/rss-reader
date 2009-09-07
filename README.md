@@ -15,6 +15,8 @@ Takeoff is my personal take on a Rails barebone application. I'm using it myself
 * require resource helpers - `require_javascript` and `require_css` - which include resources only once
 * metatag helpers - `meta :description, 'my description'` or block form `meta :description do ... end`; prevents duplicate tags
 * title tag helpers - `title page_title` to set the title, `h1_tag page_title` to set the title &amp; write an H1 tag, `title_tag` to write the title to head
+* custom 404, 500, 503 error pages, complete with special Google Analytics
+* maintenance mode - block all site access - use `rake maint:begin` and `rake maint:end` to toggle (like, in capistrano)
 
 ## Guidelines
 
@@ -27,8 +29,6 @@ Takeoff is my personal take on a Rails barebone application. I'm using it myself
 
 ## TODO
 
-* proper helper to make a title tag
-* add authlogic
-* proper 404/500 pages - in haml
+* add authlogic and openid
 * trim down tests
 * use http://github.com/toretore/javascript_routes/tree/master to get routes in javascript

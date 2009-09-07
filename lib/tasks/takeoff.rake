@@ -9,3 +9,15 @@ namespace :sass do
     end
   end
 end
+
+namespace :maint do
+  require 'fileutils'
+
+  task :begin do
+    FileUtils.touch RAILS_ROOT + '/tmp/maintenance.txt'
+  end
+  
+  task :end do
+    File.unlink RAILS_ROOT + '/tmp/maintenance.txt'
+  end
+end

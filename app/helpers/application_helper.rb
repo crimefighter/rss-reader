@@ -2,9 +2,11 @@ module ApplicationHelper
   def title_tag
   end
 
-  def google_analytics analytics_code
-    render :partial => 'shared/google_analytics', :locals => {:analytics_code => analytics_code} if RAILS_ENV == 'production'
+  def google_analytics options = {}
+    error_code = options.fetch(:error_code, nil)
+    render :partial => 'shared/google_analytics', :locals => {:analytics_code => GOOGLE_ANALYTICS_CODE, :error_code => error_code} if RAILS_ENV == 'production' || !error_code.nil?
   end
+
 
   # objects_123 # if object is an ActiveRecord
   # foos_123_bars_456 # if object is an array of ActiveRecords
@@ -31,6 +33,7 @@ module ApplicationHelper
     ''
   end
 
+
   #have yield :css in your head
   def require_css css_resource_id
     @required_css_resources ||= []
@@ -42,6 +45,7 @@ module ApplicationHelper
     end
     ''
   end
+
 
   #have yield :meta in your head
   def meta type, content = '', &block
@@ -56,12 +60,16 @@ module ApplicationHelper
     ''
   end
 
+
+  #have title_tag in your head
   def title title
     @title_parts ||= []
     @title_parts.unshift h(title)
     ''
   end
 
+
+  #same as title, but also writes an h1 tag. Recommended!
   def h1_tag title, html_options = {}
     self.title(title)
 
@@ -74,10 +82,11 @@ module ApplicationHelper
     "<h1#{attributes.empty? ? '' : ' '+attributes.join(' ')}>#{h(title)}</h1>"
   end
 
+
+  #This should be in the head
   def title_tag options = {}
     @title_parts ||= []
-
-
+    
     @title_parts.unshift options[:prefix] unless options[:prefix].nil?
     @title_parts << options[:suffix] unless options[:suffix].nil?
     separator = options.fetch(:separator, ' &mdash; ')

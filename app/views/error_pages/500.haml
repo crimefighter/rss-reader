@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %title="500 Internal Server Error &mdash; #{SITE_NAME}"
+    %meta{'http-equiv' => 'Content-type', :content => 'text/html; charset=UTF-8'}
+    %link{:rel => 'Shortcut icon', :href => '/favicon.ico'} 
+    %style
+  %body
+    %h1 The server has encountered an error
+    %p
+      Whoops! This is a server-side error, the webmaster now knows about it and will fix it ASAP.
+    %p
+      ="There's nothing you need to do. I suggest you return in a couple of hours or continue from the #{link_to 'main page', root_url}."
+    %hr
+    %p 
+      HTTP error 500 Internal Server Error
+      %br
+      ="The #{mail_to WEBMASTER_EMAIL, 'webmaster'} was automatically notified."
+    =google_analytics :error_code => 500
+="<!-- Padding\n#{('.'*80+"\n")*6} -->"
+

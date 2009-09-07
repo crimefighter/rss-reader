@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %title="404 Not Found &mdash; #{SITE_NAME}"
+    %meta{'http-equiv' => 'Content-type', :content => 'text/html; charset=UTF-8'}
+    %link{:rel => 'Shortcut icon', :href => '/favicon.ico'} 
+    %style
+  %body
+    %h1 Page not found
+    %p
+      ="The address <strong>#{request.path}</strong> does not point to an existing page on our server."
+    %p
+      ="I suggest you go to the #{link_to 'main page', root_url} and look there."
+    %hr
+    %p 
+      HTTP error 404 Not Found
+      %br
+      ="The #{mail_to WEBMASTER_EMAIL, 'webmaster'} was automatically notified."
+    =google_analytics :error_code => 404
+="<!-- Padding\n#{('.'*80+"\n")*6} -->"

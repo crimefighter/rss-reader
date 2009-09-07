@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title="503 Service Temporarily Unavailable &mdash; #{SITE_NAME}"
+    %meta{'http-equiv' => 'Content-type', :content => 'text/html; charset=UTF-8'}
+    %link{:rel => 'Shortcut icon', :href => '/favicon.ico'} 
+    %style
+  %body
+    %h1 Upgrades in progress
+    %p
+      We're upgrading the server software. The site is down to prevent damage to your data and will be back online shortly.
+    %hr
+    %p 
+      HTTP error 503 Service Temporarily Unavailable
+      %br
+      ="Contact the #{mail_to WEBMASTER_EMAIL, 'webmaster'} if you have any questions."
+="<!-- Padding\n#{('.'*80+"\n")*6} -->"

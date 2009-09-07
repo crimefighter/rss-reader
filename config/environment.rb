@@ -16,4 +16,7 @@ end
 
 Sass::Plugin.options[:template_location] = RAILS_ROOT + "/app/stylesheets"
 
+SITE_NAME = 'Takeoff'
+WEBMASTER_EMAIL = 'me@mydomain.com'
 GOOGLE_WEBMASTER_CODES = ['google0000000000000000']
+GOOGLE_ANALYTICS_CODE = 'UA-123456'
