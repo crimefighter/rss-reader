@@ -2,7 +2,9 @@ RAILS_GEM_VERSION = '2.3.3' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-
+  
+  config.gem 'authlogic'
+  config.gem 'authlogic-oid', :lib => 'authlogic_openid'
   config.gem 'haml'
 
   # TODO set up timezone
