@@ -2,6 +2,6 @@ db/schema.rb
 db/test.sqlite3
 log/*.log
 tmp/*
-*.swp
+*.*.sw*
 
 public/stylesheets/style.css

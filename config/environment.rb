@@ -13,7 +13,6 @@ Rails::Initializer.run do |config|
   config.i18n.default_locale = :en
 end
 
-
 Sass::Plugin.options[:template_location] = RAILS_ROOT + "/app/stylesheets"
 
 SITE_NAME = 'Takeoff'

@@ -1,7 +1,4 @@
 module ApplicationHelper
-  def title_tag
-  end
-
   def google_analytics options = {}
     error_code = options.fetch(:error_code, nil)
     render :partial => 'shared/google_analytics', :locals => {:analytics_code => GOOGLE_ANALYTICS_CODE, :error_code => error_code} if RAILS_ENV == 'production' || !error_code.nil?
