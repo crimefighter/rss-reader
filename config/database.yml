@@ -2,7 +2,7 @@ development:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: 
+  database: takeoff
   username: root
   password: root
   socket: /var/run/mysqld/mysqld.sock
