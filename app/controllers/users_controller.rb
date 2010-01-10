@@ -8,11 +8,13 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    if @user.save
-      flash[:notice] = "Account registered"
-      redirect_back_or_default root_url
-    else
-      render :action => :new
+    @user.save do |result|
+      if result
+        flash[:notice] = "Account registered"
+        redirect_back_or_default root_url
+      else
+        render :action => :new
+      end
     end
   end
   
@@ -25,12 +27,16 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = @current_user # makes our views "cleaner" and more consistent
-    if @user.update_attributes(params[:user])
-      flash[:notice] = "Account updated!"
-      redirect_to account_url
-    else
-      render :action => :edit
+    @user = @current_user
+    @user.attributes.merge(params[:user])
+
+    @user.save do |result|
+      if result
+        flash[:notice] = "Account updated!"
+        redirect_to account_url
+      else
+        render :action => :edit
+      end
     end
   end
 end
