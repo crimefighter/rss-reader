@@ -20,4 +20,11 @@ namespace :maint do
   task :end do
     File.unlink RAILS_ROOT + '/tmp/maintenance.txt'
   end
+
+end
+
+task :restart do
+  require 'fileutils'
+
+  FileUtils.touch RAILS_ROOT + '/tmp/restart.txt'
 end
