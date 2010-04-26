@@ -1,0 +1,7 @@
+- require_css :feeds
+
+- feeds ||= @feeds and active_feed ||= @feed
+- feeds.each do |feed|
+  %li
+    - active_class = feed == active_feed ? "active feed" : "feed"
+    = link_to truncate(feed.name), feed_entries_path(feed), :class => active_class, :title => feed.name

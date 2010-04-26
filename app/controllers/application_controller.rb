@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
     rescue_from RuntimeError, :with => :render_500
   end
 
-  
 private
 
   def check_if_maintenance

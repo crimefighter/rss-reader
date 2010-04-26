@@ -6,6 +6,8 @@ Rails::Initializer.run do |config|
   config.gem 'authlogic-oid', :lib => 'authlogic_openid'
   config.gem 'haml'
   config.gem 'formtastic'
+  config.gem 'feed-normalizer'
+  config.gem 'damog-feedbag', :lib => 'feedbag'
 
   # TODO set up timezone
   # Run "rake -D time" for a list of tasks for finding time zone names.

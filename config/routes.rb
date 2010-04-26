@@ -1,6 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'main', :action => 'index'
 
+  map.resources :entries
+  map.resources :feeds, :has_many => :entries
+
   # routes for session control
   map.signin '/signin', :controller => 'user_sessions', :action => 'new', :conditions => {:method => :get}
   map.create_user_session '/signin', :controller => 'user_sessions', :action => 'create', :conditions => {:method => :post}

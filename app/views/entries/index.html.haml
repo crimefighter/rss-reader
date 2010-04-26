@@ -1,0 +1,22 @@
+- require_css :entries_page
+- require_css :entries
+- require_javascript "jquery/paging_keys"
+- require_javascript :entries
+
+%ul#feeds
+  = render "feeds/list"
+  %li.add_feed
+    = link_to "Add feed", "#", :class => :"add_feed_toggle button"
+    - form_for Feed.new do |f|
+      = f.label :url, "Add feed by URL"
+      = f.text_field :url
+
+%ul#entries
+  - @entries.each do |entry|
+    %li.hentry
+      %h2.header
+        = link_to entry.title, entry.url, :class => :"entry-title"
+      %p.subheader
+        = link_to entry.feed, feed_entries_path(entry.feed)
+        = "#{time_ago_in_words entry.created_at} ago"
+      = entry.content

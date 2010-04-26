@@ -20,6 +20,7 @@ module ApplicationHelper
 
   #have yield :javascript in your head
   def require_javascript javascript_resource_id
+    javascript_resource_id = javascript_resource_id.to_s
     @required_javascript_resources ||= []
     unless @required_javascript_resources.include? javascript_resource_id
       content_for :javascript do 
@@ -33,6 +34,7 @@ module ApplicationHelper
 
   #have yield :css in your head
   def require_css css_resource_id
+    css_resource_id = css_resource_id.to_s
     @required_css_resources ||= []
     unless @required_css_resources.include? css_resource_id
       content_for :css do 
