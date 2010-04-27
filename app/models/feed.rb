@@ -1,5 +1,8 @@
 class Feed < ActiveRecord::Base
   has_many :entries
+  acts_as_taggable_on :tags
+
+  before_validate :preserve_tags
 
   def to_s
     name || url
