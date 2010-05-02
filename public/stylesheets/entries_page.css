@@ -22,17 +22,13 @@ ul#feeds li a.active {
   color: #000;
 }
 
-ul#feeds li.add_feed {
-  margin: 10px 3px;
-}
-
 ul#feeds li a.feed_menu_icon {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-form#new_feed {
+form.floating_form {
   display: none;
   background: #ccc;
   margin-top: 5px;
@@ -40,10 +36,17 @@ form#new_feed {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+  position: absolute;
+  z-index: 99;
 }
 
-form#new_feed label {
+form.floating_form label {
   font-size: 11px;
+}
+
+form#new_feed {
+  right: 10px;
+  top: 20px;
 }
 
 ul#entries { 
@@ -70,4 +73,8 @@ ul#tags {
 ul#tags li {
   float: left;
   margin: 0 10px;
+}
+
+ul#tags li.add_feed {
+  float: right;
 }

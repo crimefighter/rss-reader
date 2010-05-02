@@ -6,6 +6,6 @@
     - active_class = feed == active_feed ? "active feed" : "feed"
     = link_to truncate(feed.name), feed_entries_path(feed), :class => active_class, :title => feed.name
     = link_to "☃", "#", :class => :"feed_menu_icon"
-    - form_for feed, :html => {:class => :"hidden feed_menu" } do |f|
+    - form_for feed, :html => {:class => :"floating_form feed_menu" } do |f|
       = f.label :tag_list, "Tags"
       = f.text_field :tag_list, :value => f.object.tags_from(current_user).join(", ")

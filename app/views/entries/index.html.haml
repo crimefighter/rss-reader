@@ -3,17 +3,16 @@
 - require_javascript "jquery/paging_keys"
 - require_javascript :entries
 
-- unless @tags.blank?
-  %ul#tags
-    = render "feeds/tag_list", :include_blank => true
+%ul#tags
+  = render "feeds/tag_list", :include_blank => true
+  %li.add_feed
+    = link_to "Add feed", "#", :class => :"add_feed_toggle button"
+    - form_for Feed.new, :html => {:class => :floating_form} do |f|
+      = f.label :url, "Add feed by URL"
+      = f.text_field :url
 
 %ul#feeds
   = render "feeds/list"
-  %li.add_feed
-    = link_to "Add feed", "#", :class => :"add_feed_toggle button"
-    - form_for Feed.new do |f|
-      = f.label :url, "Add feed by URL"
-      = f.text_field :url
 
 %ul#entries
   - @entries.each do |entry|
