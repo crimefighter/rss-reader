@@ -6,6 +6,7 @@ class Entry < ActiveRecord::Base
   default_scope :order => "created_at DESC"
   
   named_scope :for_user, lambda {|u| {:conditions => {:feed_id => u.feeds.map(&:id)}}}
+  named_scope :from_feeds, lambda {|feeds| {:conditions => {:feed_id => feeds.to_a.map(&:to_i)}}}
 
   xss_terminate :except => [ :content ]
 

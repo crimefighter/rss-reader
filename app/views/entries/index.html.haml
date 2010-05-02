@@ -3,6 +3,10 @@
 - require_javascript "jquery/paging_keys"
 - require_javascript :entries
 
+- unless @tags.blank?
+  %ul#tags
+    = render "feeds/tag_list", :include_blank => true
+
 %ul#feeds
   = render "feeds/list"
   %li.add_feed

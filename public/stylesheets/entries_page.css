@@ -3,11 +3,15 @@ ul#feeds {
   position: fixed;
   font-size: 12px;
   padding: 10px;
+  margin-top: 20px;
 }
+
+ul#feeds li { position: relative }
 
 ul#feeds li a.feed {
   display: block;
   padding: 3px;
+  margin-right: 10px;
 }
 
 ul#feeds li a.feed:hover {
@@ -20,6 +24,12 @@ ul#feeds li a.active {
 
 ul#feeds li.add_feed {
   margin: 10px 3px;
+}
+
+ul#feeds li a.feed_menu_icon {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 form#new_feed {
@@ -40,6 +50,7 @@ ul#entries {
   float: left; width: 82%;
   margin-left: 15%;
   padding-left: 20px;
+  margin-top: 20px;
 }
 
 ul#entries li {
@@ -47,4 +58,16 @@ ul#entries li {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
+}
+
+ul#tags {
+  position: fixed;
+  padding: 2px;
+  background: #fff;
+  width: 100%;
+}
+
+ul#tags li {
+  float: left;
+  margin: 0 10px;
 }

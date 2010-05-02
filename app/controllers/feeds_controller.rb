@@ -1,6 +1,6 @@
 class FeedsController < ApplicationController
   def index
-    @feeds = Feed.all
+    Feed.all :joins => :tags
   end
 
   def create
@@ -17,6 +17,23 @@ class FeedsController < ApplicationController
   def show
     @feed = Feed.find(params[:id])
     @entries = @feed.entries
+  end
+
+  def update
+    @feed = Feed.find(params[:id])
+    if tag_list = params[:feed].delete(:tag_list)
+      current_user.tag(@feed, :with => tag_list, :on => :tags)
+    end
+    respond_to do |format|
+      format.json if request.xhr?
+      if @feed.update_attributes(params[:feed])
+        format.html { redirect_to :back }
+        format.json { render :json => {:status => 1} }
+      else
+        format.html { redirect_to :back }
+        format.json { render :json => {:status => 0, :errors => @feed.errors} }
+      end
+    end
   end
 
   def destroy

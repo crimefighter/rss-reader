@@ -4,5 +4,10 @@ $(document).ready(function() {
     return false;
   });
 
+  $(".feed_menu_icon").click(function() {
+    $(this).next(".feed_menu").toggle();
+    return false;
+  });
+
   $("h2.header a").keynav();
 });
