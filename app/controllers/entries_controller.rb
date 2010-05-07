@@ -4,7 +4,7 @@ class EntriesController < ApplicationController
   def index
     @entries = case
       when params[:tagged]
-        @feeds = Feed.tagged_with params[:tagged]
+        @feeds = current_user.feeds.tagged_with params[:tagged]
         Entry.from_feeds @feeds
       when params[:feed_id]
         @feed = Feed.find(params[:feed_id])

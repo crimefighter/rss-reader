@@ -16,4 +16,12 @@ class Entry < ActiveRecord::Base
   end
 
   def per_page; 20 end
+
+  def self.from_feeds_tagged_with tag_list, options = nil
+    options ||= {}
+    tagger = options.fetch(:by, nil)
+    feed_scope = tagger.feeds || Feed
+    feeds = feed_scope.tagged_with tag_list
+    self.find_all_by_feed_id(feeds.map(&:id))
+  end
 end
