@@ -1,0 +1,12 @@
+%ul#tags
+  = render "feeds/tag_list", :include_blank => true
+  %li.search_bar
+    - form_tag search_entries_path, :method => :get do
+      = text_field_tag :q, params[:q]
+      - unless params[:q].blank?
+        = link_to "[x]", entries_path
+  %li.add_feed
+    = link_to "Add feed", "#", :class => :"add_feed_toggle button"
+    - form_for Feed.new, :html => {:class => :floating_form} do |f|
+      = f.label :url, "Add feed by URL"
+      = f.text_field :url

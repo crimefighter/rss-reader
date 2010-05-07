@@ -10,5 +10,10 @@ class Entry < ActiveRecord::Base
 
   xss_terminate :except => [ :content ]
 
+  index do
+    title
+    content
+  end
+
   def per_page; 20 end
 end

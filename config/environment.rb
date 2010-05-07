@@ -9,6 +9,8 @@ Rails::Initializer.run do |config|
   config.gem 'feed-normalizer'
   config.gem 'damog-feedbag', :lib => 'feedbag'
 
+  config.gem 'texticle'
+
   # TODO set up timezone
   # Run "rake -D time" for a list of tasks for finding time zone names.
   config.time_zone = 'UTC' 

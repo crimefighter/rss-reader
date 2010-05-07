@@ -4,13 +4,7 @@
 - require_javascript "jquery/paging_keys"
 - require_javascript :entries
 
-%ul#tags
-  = render "feeds/tag_list", :include_blank => true
-  %li.add_feed
-    = link_to "Add feed", "#", :class => :"add_feed_toggle button"
-    - form_for Feed.new, :html => {:class => :floating_form} do |f|
-      = f.label :url, "Add feed by URL"
-      = f.text_field :url
+= render "entries/top_bar"
 
 %ul#feeds
   = render "feeds/list"
@@ -25,4 +19,8 @@
         = "#{time_ago_in_words entry.created_at} ago"
         &bull;
         = link_to "origin", entry.url, :class => :link_to_origin, :target => :_blank
-      = entry.content
+      - if current_user.display_full_entries_in_list?
+        - if (limit = current_user.limit_entries_in_list_to) > 0
+          = truncate entry.content, limit
+        - else
+          = entry.content

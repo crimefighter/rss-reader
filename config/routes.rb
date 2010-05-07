@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'main', :action => 'index'
 
-  map.resources :entries
+  map.resources :entries, :collection => [:search]
   map.resources :feeds, :has_many => :entries
 
   # routes for session control
