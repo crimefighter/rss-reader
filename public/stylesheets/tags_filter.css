@@ -1,0 +1,15 @@
+ul#tags {
+  position: fixed;
+  padding: 2px 0;
+  background: #fff;
+  width: 100%;
+}
+
+ul#tags li {
+  float: left;
+  margin: 0 10px;
+}
+
+ul#tags li.add_feed {
+  float: right;
+}

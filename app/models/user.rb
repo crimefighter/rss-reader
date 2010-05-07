@@ -12,8 +12,8 @@ class User < ActiveRecord::Base
 
   def owned_tag_counts
     owned_taggings.all(
-      :select => "count(*) count, taggings.tag_id, tags.name name",
+      :select => "count(*) count, taggings.tag_id, tags.name as name",
       :joins => :tag,
-      :group => :tag_id).sort {|a,b| b.count<=>a.count}
+      :group => "taggings.tag_id, name").sort {|a,b| b.count<=>a.count}
   end
 end

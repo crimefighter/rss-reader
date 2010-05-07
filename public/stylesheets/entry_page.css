@@ -1,0 +1,18 @@
+ul#tags {
+  position: relative !important;
+}
+
+div.entry {
+  width: 60%;
+  padding: 30px 20%;
+}
+
+div.entry h1.entry_header {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+div.entry p.entry_feed_description {
+  margin: 0 0 20px 0;
+  color: #777;
+}

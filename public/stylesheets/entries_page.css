@@ -28,27 +28,6 @@ ul#feeds li a.feed_menu_icon {
   right: 0;
 }
 
-form.floating_form {
-  display: none;
-  background: #ccc;
-  margin-top: 5px;
-  padding: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  position: absolute;
-  z-index: 99;
-}
-
-form.floating_form label {
-  font-size: 11px;
-}
-
-form#new_feed {
-  right: 10px;
-  top: 20px;
-}
-
 ul#entries { 
   float: left; width: 82%;
   margin-left: 15%;
@@ -61,20 +40,4 @@ ul#entries li {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-}
-
-ul#tags {
-  position: fixed;
-  padding: 2px;
-  background: #fff;
-  width: 100%;
-}
-
-ul#tags li {
-  float: left;
-  margin: 0 10px;
-}
-
-ul#tags li.add_feed {
-  float: right;
 }
