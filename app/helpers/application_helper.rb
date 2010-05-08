@@ -92,4 +92,8 @@ module ApplicationHelper
 
     "<title>#{@title_parts.join separator}</title>"
   end
+
+  def icon_tag icon
+    image_tag "icons/#{icon.to_s}.png", :class => "icon icon_#{icon.to_s}", :size => "16x16"
+  end
 end

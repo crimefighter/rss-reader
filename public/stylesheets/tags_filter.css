@@ -1,8 +1,10 @@
 ul#tags {
   position: fixed;
-  padding: 2px 0;
+  padding-top: 2px;
   background: #fff;
   width: 100%;
+  border-bottom: 1px solid #ccc;
+  background: #eee;
 }
 
 ul#tags li {
@@ -10,6 +12,10 @@ ul#tags li {
   margin: 0 10px;
 }
 
-ul#tags li.add_feed {
+ul#tags li.my_feeds {
+  font-weight: bold;
+}
+
+ul#tags li.search_bar {
   float: right;
 }

@@ -1,21 +1,26 @@
 ul#feeds { 
-  float: left; width: 15%; 
+  float: right; width: 15%; 
   position: fixed;
+  right: 10px;
   font-size: 12px;
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 40px;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
 }
 
 ul#feeds li { position: relative }
 
 ul#feeds li a.feed {
   display: block;
-  padding: 3px;
-  margin-right: 10px;
+  margin: 0 20px 5px 0;
 }
 
-ul#feeds li a.feed:hover {
-  background: #ccc;
+ul#feeds li a.feed_menu_icon {
+  display: none;
+  color: #777;
+  font-size: 11px;
 }
 
 ul#feeds li a.active {
@@ -30,14 +35,6 @@ ul#feeds li a.feed_menu_icon {
 
 ul#entries { 
   float: left; width: 82%;
-  margin-left: 15%;
-  padding-left: 20px;
+  margin-right: 15%;
   margin-top: 20px;
-}
-
-ul#entries li {
-  background: #fff;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
 }

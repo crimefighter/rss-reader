@@ -1,0 +1,33 @@
+body {
+  font-size: 14px;
+  font-family: Helvetica, Arial;
+  line-height: 18px;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: #1862d2;
+}
+
+.fl-left {float:left}
+.fl-right {float:right}
+.hidden {display:none}
+
+form.floating_form {
+  display: none;
+  background: #ccc;
+  margin-top: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 99;
+}
+ 
+form.floating_form label {
+  font-size: 11px;
+}
+
+img.icon {
+  margin-bottom: -3px;
+}

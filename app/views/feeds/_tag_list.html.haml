@@ -1,7 +1,4 @@
 - tags ||= @tags and active_tag ||= @tag
-- if include_blank
-  %li
-    = link_to "My feeds", entries_path
 - tags.each do |tag|
   %li
     = link_to tag.name, entries_path(:tagged => tag.name)
