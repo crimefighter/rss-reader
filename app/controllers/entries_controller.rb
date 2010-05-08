@@ -28,6 +28,6 @@ class EntriesController < ApplicationController
 
   private
   def load_tags
-    @tags = current_user.owned_tag_counts
+    @tags = current_user.owned_tag_counts[0..10]
   end
 end
