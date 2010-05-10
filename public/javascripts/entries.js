@@ -1,8 +1,15 @@
 $(document).ready(function() {
   $("#add_subscription").dialog({
+    title: "Subscribe to a feed...",
+    autoOpen: false,
+    modal: true,
+    resizable: false,
+    position: [20,40],
+    width: 400
   });
   $(".add_feed_toggle").click(function() {
     $("#add_subscription").dialog('open');
+    $("#feed_url").focus();
     return false;
   });
 
@@ -13,13 +20,14 @@ $(document).ready(function() {
     that.dialog({
       title: feed_name + " properties",
       autoOpen: false,
-      resizeable: false,
+      resizable: false,
       modal: true,
-      hight: 300,
-      width: 400
+      width: 400,
+      position: 'center'
     });
     $open_link.click(function() {
       that.dialog('open');
+      return false;
     });
   });
 

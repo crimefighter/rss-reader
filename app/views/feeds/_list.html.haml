@@ -7,7 +7,4 @@
     = link_to truncate(feed.name), feed_entries_path(feed), :class => active_class, :title => feed.name
     = link_to 'edit', "#", :class => :"feed_menu_icon"
     %div.feed_properties
-      - form_for feed, :html => {:class => :"feed_menu" } do |f|
-        = f.label :tag_list, "Tags"
-        = f.text_field :tag_list, :value => f.object.tags_from(current_user).join(", ")
-        = f.submit "Save"
+      =render "feeds/settings", :feed => feed

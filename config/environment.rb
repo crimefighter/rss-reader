@@ -8,6 +8,7 @@ Rails::Initializer.run do |config|
   config.gem 'formtastic'
   config.gem 'feed-normalizer'
   config.gem 'damog-feedbag', :lib => 'feedbag'
+  config.gem 'hpricot'
 
   config.gem 'texticle'
 

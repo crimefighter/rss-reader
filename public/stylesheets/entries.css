@@ -1,6 +1,7 @@
 ul#entries li {
   padding: 10px 30px 10px 10px;
   margin: 10px 0 30px 0;
+  overflow: auto;
 }
 
 ul#entries li h2.header {

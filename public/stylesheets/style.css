@@ -31,3 +31,9 @@ form.floating_form label {
 img.icon {
   margin-bottom: -3px;
 }
+
+label {
+  font-size: 11px;
+}
+
+h3 { margin: 10px 0; }

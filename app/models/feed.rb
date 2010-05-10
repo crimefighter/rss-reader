@@ -1,6 +1,12 @@
 class Feed < ActiveRecord::Base
   has_many :entries
   acts_as_taggable
+  acts_as_configurable do |c|
+    c.boolean :headers_only, :default => false
+    c.integer :limit_entries_to, :default => 0
+    c.boolean :pictures_only, :default => false
+    c.boolean :plain_text_only, :default => false
+  end
   
   def to_i; id end
 

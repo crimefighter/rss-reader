@@ -23,4 +23,4 @@
         - if (limit = current_user.limit_entries_in_list_to) > 0
           = truncate entry.content, limit
         - else
-          = entry.content
+          = entry_content entry
