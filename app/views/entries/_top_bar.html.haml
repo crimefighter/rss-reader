@@ -2,9 +2,10 @@
   %li.my_feeds
     = link_to "My feeds", entries_path
     = link_to icon_tag(:add), "#", :class => :"add_feed_toggle button", :title => "Add subscription"
-    - form_for Feed.new, :html => {:class => :floating_form} do |f|
-      = f.label :url, "Add feed by URL"
-      = f.text_field :url
+    %div#add_subscription
+      - form_for Feed.new do |f|
+        = f.label :url, "Add feed by URL"
+        = f.text_field :url
   = render "feeds/tag_list"
   %li.search_bar
     - form_tag search_entries_path, :method => :get do

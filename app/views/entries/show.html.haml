@@ -2,13 +2,7 @@
 - require_css :entry_page
 - require_javascript :entries
 
-%ul#tags
-  = render "feeds/tag_list", :include_blank => true
-  %li.add_feed
-    = link_to "Add feed", "#", :class => :"add_feed_toggle button"
-    - form_for Feed.new, :html => {:class => :floating_form} do |f|
-      = f.label :url, "Add feed by URL"
-      = f.text_field :url
+= render "entries/top_bar"
 
 %div.entry
   %h1.entry_header
@@ -20,6 +14,3 @@
     &bull;
     = link_to "origin", @entry.url, :class => :link_to_origin
   = @entry.content
-
-%ul#tags
-  = render "feeds/tag_list", :tags => current_user.owned_tags, :include_blank => true

@@ -5,6 +5,7 @@ ul#tags {
   width: 100%;
   border-bottom: 1px solid #ccc;
   background: #eee;
+  overflow: auto;
 }
 
 ul#tags li {
