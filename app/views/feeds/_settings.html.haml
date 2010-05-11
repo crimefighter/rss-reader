@@ -2,6 +2,7 @@
   %h3 Provide tags for this feed
   %p
     = f.text_field :tag_list, :value => f.object.tags_from(current_user).join(", ")
+  %p &nbsp;
   %h3 Tweak look of this feed on entries page
   %p
     = f.check_box :headers_only

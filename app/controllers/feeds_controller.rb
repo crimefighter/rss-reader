@@ -38,5 +38,4 @@ class FeedsController < ApplicationController
 
   def destroy
   end
-
 end
