@@ -6,6 +6,7 @@ a, a:visited {
 .fl-left {float:left}
 .fl-right {float:right}
 .hidden {display:none}
+.cl {clear:both}
 
 img.icon {
   margin-bottom: -3px;

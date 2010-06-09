@@ -1,10 +1,18 @@
-ul#tags {
-  position: relative !important;
+body {
+  font-size: 14px;
+  font-family: Helvetica, Arial;
+  line-height: 18px;
+  background: #ddd;
 }
 
 div.entry {
-  width: 60%;
-  padding: 30px 20%;
+  margin: 0 15%;
+  padding: 20px;
+  background: #fff;
+}
+
+ul#tags {
+  margin: 0 15%;
 }
 
 div.entry h1.entry_header {
