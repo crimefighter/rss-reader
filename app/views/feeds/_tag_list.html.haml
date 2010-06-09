@@ -1,4 +1,5 @@
 - tags ||= @tags and active_tag ||= @tag
 - tags.each do |tag|
-  %li
+  - active_class = (params[:tagged] == tag.name) ? "active rounded-top-5" : ""
+  %li{:class => "#{active_class} tag"}
     = link_to tag.name, entries_path(:tagged => tag.name)

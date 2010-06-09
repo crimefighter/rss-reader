@@ -1,6 +1,6 @@
 %ul#tags
-  %li.my_feeds
-    = link_to "My feeds", entries_path
+  %li{:class => "my_feeds #{"active rounded-top-5" if params[:tagged].blank?}"}
+    = link_to "Entries", entries_path
     = link_to icon_tag(:add), "#", :class => :"add_feed_toggle button", :title => "Add subscription"
     %div#add_subscription
       - form_for Feed.new do |f|
@@ -8,9 +8,3 @@
         = f.text_field :url
         = f.submit "Subscribe"
   = render "feeds/tag_list"
-  %li.search_bar
-    - form_tag search_entries_path, :method => :get do
-      = text_field_tag :q, params[:q]
-      - unless params[:q].blank?
-        = link_to icon_tag(:close), entries_path, :title => "Clear"
-      = icon_tag :search

@@ -1,22 +1,29 @@
 ul#tags {
-  position: fixed;
-  padding-top: 2px;
-  background: #fff;
-  width: 100%;
-  border-bottom: 1px solid #ccc;
-  background: #eee;
-  overflow: auto;
+  padding: 20px 0 0 30px;
+  width: 78%;
 }
 
 ul#tags li {
   float: left;
-  margin: 0 10px;
+  padding: 5px 0 5px 0;
 }
 
 ul#tags li.my_feeds {
   font-weight: bold;
+  margin: 0 10px;
+  padding: 5px 10px;
 }
 
 ul#tags li.search_bar {
   float: right;
+  margin: 0 10px;
+}
+
+ul#tags li.tag a {
+  padding: 5px 10px;
+  margin: 0 5px;
+}
+
+ul#tags li.active {
+  background: #fff;
 }

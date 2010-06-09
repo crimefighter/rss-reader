@@ -7,9 +7,13 @@
 = render "entries/top_bar"
 
 %ul#feeds
+  %li.search_bar
+    - form_tag search_entries_path, :method => :get do
+      %input{:type => :search, :name => :q, :value => params[:q], :placeholder => "Search"}
+      = icon_tag :search
   = render "feeds/list"
 
-%ul#entries
+%ul#entries.drops-shadow.rounded-20
   - @entries.each do |entry|
     %li.hentry
       %h2.header

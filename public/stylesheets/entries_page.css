@@ -1,22 +1,30 @@
+body {
+  font-size: 14px;
+  font-family: Helvetica, Arial;
+  line-height: 18px;
+  background: #ddd;
+}
+
 ul#feeds { 
-  float: right; width: 15%; 
-  position: fixed;
-  right: 10px;
+  width: 15%; 
+  position: absolute;
+  right: 0;
   font-size: 12px;
-  padding: 10px;
-  margin-top: 40px;
-  border: 1px solid #ccc;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  max-height: 85%;
-  overflow: auto;
+  padding: 16px 10px 10px 10px;
+  margin-top: 24px;
 }
 
 ul#feeds li { position: relative }
 
+ul#feeds li.search_bar {
+  padding: 5px 0;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #aaa;
+}
+
 ul#feeds li a.feed {
   display: block;
-  margin: 0 20px 5px 0;
+  margin: 0 20px 5px 5px;
 }
 
 ul#feeds li a.feed_menu_icon {
@@ -37,6 +45,20 @@ ul#feeds li a.feed_menu_icon {
 
 ul#entries { 
   float: left; width: 82%;
-  margin-right: 15%;
-  margin-top: 20px;
+  margin: 0 15% 20px 20px;
+  background: #fff;
+}
+
+ul#entries li {
+  padding: 20px 30px 10px 20px;
+  overflow: auto;
+}
+
+ul#entries li h2.header {
+  font-size: 18px;
+}
+
+ul#entries li p.subheader {
+  color: #999;
+  padding: 5px 0 10px 0;
 }
