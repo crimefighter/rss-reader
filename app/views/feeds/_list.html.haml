@@ -6,5 +6,5 @@
     - active_class = feed == active_feed ? "active feed" : "feed"
     = link_to truncate(feed.name), feed_entries_path(feed), :class => active_class, :title => feed.name
     = link_to 'edit', "#", :class => :"feed_menu_icon"
-    %div.feed_properties
+    %div.feed_properties.hidden
       =render "feeds/settings", :feed => feed

@@ -14,20 +14,24 @@ $(document).ready(function() {
   });
 
   $("div.feed_properties").each(function() {
-    feed_name = $(this).parent().find("a.feed").html();
+    $feed_link = $(this).parent().find("a.feed");
+    feed_name = $feed_link.html();
     $open_link = $(this).prev("a.feed_menu_icon");
     var that = $(this);
-    that.dialog({
-      title: feed_name + " properties",
-      autoOpen: false,
-      resizable: false,
-      modal: true,
-      width: 400,
-      position: 'center'
-    });
-    $open_link.click(function() {
-      that.dialog('open');
-      return false;
+    $open_link.qtip({
+      content: that.html(),
+      position: { 
+        corner: { tooltip: 'topMiddle' },
+        adjust: { x: -130 }
+      },
+      style: { 
+        tip: true,
+        name: 'green', 
+        border: { radius: 5, color: '#1862d2' }, 
+        background: '#fff', 
+        'font-size': '12px' },
+      show: { when: { event: 'click' }, delay: 0 },
+      hide: { when: { event: 'unfocus' } }
     });
   });
 
