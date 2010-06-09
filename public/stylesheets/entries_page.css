@@ -10,8 +10,7 @@ ul#feeds {
   position: absolute;
   right: 0;
   font-size: 12px;
-  padding: 16px 10px 10px 10px;
-  margin-top: 24px;
+  padding: 10px;
 }
 
 ul#feeds li { position: relative }
