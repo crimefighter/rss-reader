@@ -1,16 +1,16 @@
 $(document).ready(function() {
-  $("#add_subscription").dialog({
-    title: "Subscribe to a feed...",
-    autoOpen: false,
-    modal: true,
-    resizable: false,
-    position: [20,40],
-    width: 400
-  });
-  $(".add_feed_toggle").click(function() {
-    $("#add_subscription").dialog('open');
-    $("#feed_url").focus();
-    return false;
+  $("a.add_feed_toggle").qtip({
+    content: $("#add_subscription"),
+    position: { corner: { tooltip: 'topLeft' } },
+    style: { 
+      tip: true,
+      name: 'green', 
+      border: { radius: 5 }, 
+      background: '#fff', 
+      width: 400,
+      'font-size': '12px' },
+    show: { when: { event: 'click' }, delay: 0 },
+    hide: { when: { event: 'unfocus' } }
   });
 
   $("div.feed_properties").each(function() {

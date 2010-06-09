@@ -2,9 +2,9 @@
   %li{:class => "my_feeds #{"active rounded-top-5" if params[:tagged].blank?}"}
     = link_to "Entries", entries_path
     = link_to icon_tag(:add), "#", :class => :"add_feed_toggle button", :title => "Add subscription"
-    %div#add_subscription
+    %div#add_subscription.hidden
       - form_for Feed.new do |f|
-        = f.label :url, "Paste URL of a feed or website that contains a feed"
+        %p= f.label :url, "Paste URL of a feed or website"
         = f.text_field :url
         = f.submit "Subscribe"
   = render "feeds/tag_list"
