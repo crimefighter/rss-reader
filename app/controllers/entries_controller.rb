@@ -28,9 +28,13 @@ class EntriesController < ApplicationController
 
   def search
     return redirect_to :back if params[:q].blank?
-    @entries = current_user.entries.search(params[:q]).paginate(:page => params[:page], :joins => :feed)
-    @feeds = current_user.feeds :joins => :tags
-    render :index
+    @entries = current_user.entries.search(params[:q]).paginate(:page => params[:page], :joins => :feed).paginate(:page => params[:page])
+    @feeds = current_user.feeds(:joins => :tags).paginate(:page => params[:page])
+    params[:format] = "js" if request.xhr?
+    respond_to do |format|
+      format.html { render :index }
+      format.js { render :partial => "entries/entry", :collection => @entries, :layout => false }
+    end
   end
 
   private

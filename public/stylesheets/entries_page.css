@@ -57,6 +57,7 @@ ul#entries {
   float: left; width: 80%;
   margin: 0 15% 20px 20px;
   background: #fff;
+  z-index: 10;
 }
 
 ul#entries li {

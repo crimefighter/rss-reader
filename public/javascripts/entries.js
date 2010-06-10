@@ -75,6 +75,7 @@ $(document).ready(function() {
     other_label = $(this).attr("data-other-label");
     $(this).attr("data-other-label", $(this).html());
     $(this).html(other_label);
+    $(this).parent().toggleClass("opened");
   });
 
   //$("h2.header a").keynav();
