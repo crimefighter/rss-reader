@@ -13,6 +13,7 @@ class EntriesController < ApplicationController
     end
     @entries = @entries.paginate(:page => params[:page], :joins => :feed)
     @feeds ||= current_user.feeds :joins => :tags
+    @feeds = @feeds.paginate :page => params[:page]
   end
 
   def show

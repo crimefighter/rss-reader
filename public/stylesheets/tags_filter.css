@@ -8,10 +8,22 @@ ul#tags li {
   padding: 5px 0 5px 0;
 }
 
+ul#tags li.tag {
+  margin: 0 3px;
+  background: #ccc;
+  border: 2px solid #ccc;
+}
+
 ul#tags li.my_feeds {
   font-weight: bold;
-  margin: 0 10px;
+  margin: 0 3px 0 10px;
   padding: 5px 10px;
+  border: 2px solid transparent;
+}
+
+ul#tags li.my_feeds a {
+  color: #555;
+  text-shadow: #fff 0 1px 1px;
 }
 
 ul#tags li.search_bar {
@@ -22,6 +34,8 @@ ul#tags li.search_bar {
 ul#tags li.tag a {
   padding: 5px 10px;
   margin: 0 5px;
+  color: #555;
+  text-shadow: #fff 0 1px 1px;
 }
 
 ul#tags li.active {

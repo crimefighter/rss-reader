@@ -14,6 +14,10 @@ class Feed < ActiveRecord::Base
     name || url
   end
 
+  def self.per_page
+    20
+  end
+
   def fetch_entries
     feed_xml = FeedNormalizer::FeedNormalizer.parse open url rescue nil
     if feed_xml.blank?

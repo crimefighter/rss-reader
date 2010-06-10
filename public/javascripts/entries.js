@@ -41,5 +41,10 @@ $(document).ready(function() {
     $(this).find(".feed_menu_icon").hide();
   });
 
+  $("ul#feeds li div.pagination a").live("click", function() {
+    $("ul#feeds span#feed_list").load($(this).attr("href"));
+    return false;
+  });
+
   $("h2.header a").keynav();
 });

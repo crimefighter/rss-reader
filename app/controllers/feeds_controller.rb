@@ -1,6 +1,15 @@
 class FeedsController < ApplicationController
   def index
-    Feed.all :joins => :tags
+    @feeds = case
+      when params[:tagged] then current_user.feeds.tagged_with params[:tagged]
+      else current_user.feeds :joins => :tags
+    end
+    @feeds = @feeds.paginate :page => params[:page]
+    respond_to do |format|
+      format.js do
+        render :partial => "feeds/list", :layout => false
+      end
+    end
   end
 
   def create

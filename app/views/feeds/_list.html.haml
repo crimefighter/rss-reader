@@ -8,3 +8,4 @@
     = link_to 'edit', "#", :class => :"feed_menu_icon"
     %div.feed_properties.hidden
       =render "feeds/settings", :feed => feed
+%li= will_paginate @feeds, :renderer => DotPaginationRenderer, :page_link_path => {:controller => :feeds, :action => :index, :format => :js}
