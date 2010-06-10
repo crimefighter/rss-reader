@@ -1,6 +1,7 @@
 ul#tags {
   padding: 20px 0 0 30px;
-  width: 78%;
+  width: 80%;
+  position: relative;
 }
 
 ul#tags li {
@@ -42,4 +43,19 @@ ul#tags li.active {
   background: #fafafa;
   border: 2px solid #a9db66;
   border-bottom: 0 none;
+}
+
+ul#tags li.all_tags {
+  margin: 0 3px;
+  background: #c9c9ff;
+  border: 2px solid #c9c9ff;
+  right: 0px;
+  position: absolute;
+}
+
+ul#tags li.all_tags a {
+  padding: 5px 10px;
+  margin: 0 5px;
+  color: #555;
+  text-shadow: #fff 0 1px 1px;
 }

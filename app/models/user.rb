@@ -14,11 +14,11 @@ class User < ActiveRecord::Base
     email
   end
 
-  def owned_tag_counts
-    owned_taggings.all(
-      :select => "count(*) count, taggings.tag_id, tags.name as name",
-      :joins => :tag,
-      :group => "taggings.tag_id, name").sort {|a,b| b.count<=>a.count}
+  def owned_tag_counts_from entity, options = nil
+    options ||= {}
+    context = options.fetch(:on, :tags)
+    return unless self.respond_to? entity
+    self.send(entity).tag_counts_on(context, :conditions => {"taggings.tagger_type" => self.class.name, "taggings.tagger_id" => self.id})
   end
 
   def entries

@@ -15,7 +15,10 @@
   %span#feed_list
     = render "feeds/list"
 
-%ul#entries.drops-shadow.rounded-20
+%ul#entries.drops-shadow.rounded-10
+  %li.tag_cloud.rounded-top-10.hidden
+    - tag_cloud @all_tags, %w(w1 w2 w3 w4) do |tag, css_class|
+      = link_to tag.name, entries_path(:tagged => tag.name), :class => css_class
   - @entries.each do |entry|
     %li.hentry
       %h2.header

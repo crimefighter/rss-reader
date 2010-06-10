@@ -46,5 +46,17 @@ $(document).ready(function() {
     return false;
   });
 
+  $("ul#tags li.all_tags a").click(function() {
+    $tag_cloud = $("ul#entries li.tag_cloud");
+    if($tag_cloud.css("display") == "none") {
+      $tag_cloud.slideDown();
+    } else {
+      $tag_cloud.slideUp();
+    }
+    other_label = $(this).attr("data-other-label");
+    $(this).attr("data-other-label", $(this).html());
+    $(this).html(other_label);
+  });
+
   $("h2.header a").keynav();
 });

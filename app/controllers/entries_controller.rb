@@ -29,6 +29,7 @@ class EntriesController < ApplicationController
 
   private
   def load_tags
-    @tags = current_user.owned_tag_counts[0..10]
+    @all_tags = current_user.owned_tag_counts_from :feeds
+    @tags = @all_tags[0...7]
   end
 end
