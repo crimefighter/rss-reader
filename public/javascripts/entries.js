@@ -1,4 +1,23 @@
 $(document).ready(function() {
+
+  $(window).resize(function() {
+    $("ul#feeds").width($(window).width() - $("ul#entries").width() - 40);
+  });
+  $(window).resize();
+
+  $(window).scroll(function() {
+    if(isReallyVisible("h1#logo")) {
+      $("ul#feeds").css("top", "50px");
+    } else {
+      $("ul#feeds").css("top", "10px");
+    }
+  });
+
+  $(window).infinitescroll({
+    url: window.location.href,
+    appendTo: "ul#entries"
+  });
+
   $("a.add_feed_toggle").qtip({
     content: $("#add_subscription"),
     position: { corner: { tooltip: 'topLeft' } },
@@ -48,7 +67,7 @@ $(document).ready(function() {
 
   $("ul#tags li.all_tags a").click(function() {
     $tag_cloud = $("ul#entries li.tag_cloud");
-    if($tag_cloud.css("display") == "none") {
+    if($tag_cloud.is(':hidden')) {
       $tag_cloud.slideDown();
     } else {
       $tag_cloud.slideUp();
@@ -58,5 +77,15 @@ $(document).ready(function() {
     $(this).html(other_label);
   });
 
-  $("h2.header a").keynav();
+  //$("h2.header a").keynav();
 });
+
+function isReallyVisible(elem) {
+  var docViewTop = $(window).scrollTop();
+  var docViewBottom = docViewTop + $(window).height();
+
+  var elemTop = $(elem).offset().top;
+  var elemBottom = elemTop + $(elem).height();
+
+  return ((elemBottom >= docViewTop) && (elemTop <= docViewBottom));
+}

@@ -14,6 +14,12 @@ class EntriesController < ApplicationController
     @entries = @entries.paginate(:page => params[:page], :joins => :feed)
     @feeds ||= current_user.feeds :joins => :tags
     @feeds = @feeds.paginate :page => params[:page]
+
+    params[:format] = "js" if request.xhr?
+    respond_to do |format|
+      format.html
+      format.js { render :partial => "entries/entry", :collection => @entries, :layout => false }
+    end
   end
 
   def show

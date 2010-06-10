@@ -1,16 +1,16 @@
 body {
   font-size: 14px;
-  font-family: Helvetica, Arial;
+  font-family: 'Helvetica Neue', Helvetica, Arial;
   line-height: 18px;
   background: #ddd;
 }
 
 ul#feeds { 
-  width: 15%; 
+  width: 18%; 
   position: fixed;
-  right: 0;
+  right: 10px;
+  top: 50px;
   font-size: 12px;
-  padding: 10px;
 }
 
 ul#feeds li { position: relative }
@@ -19,6 +19,10 @@ ul#feeds li.search_bar {
   padding: 5px 0;
   margin-bottom: 5px;
   border-bottom: 1px solid #aaa;
+}
+
+ul#feeds li.search_bar input {
+  width: 100%;
 }
 
 ul#feeds li a.feed {
@@ -50,7 +54,7 @@ ul#feeds li div.pagination span {
 }
 
 ul#entries { 
-  float: left; width: 82%;
+  float: left; width: 80%;
   margin: 0 15% 20px 20px;
   background: #fff;
 }
@@ -72,4 +76,12 @@ ul#entries li p.subheader {
 ul#entries li.tag_cloud {
   text-align: center;
   background: #d7d7ff;
+}
+
+ul#entries li.tag_cloud a {
+  margin: 0 10px;
+}
+
+ul#entries li.tag_cloud a.active {
+  color: #555;
 }

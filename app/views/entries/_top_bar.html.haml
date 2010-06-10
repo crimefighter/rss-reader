@@ -8,5 +8,9 @@
         = f.text_field :url
         = f.submit "Subscribe"
   = render "feeds/tag_list"
-  %li.all_tags.rounded-top-5= link_to "More tags", "#", :"data-other-label" => "Less tags"
+  %li.all_tags.rounded-top-5
+    - if params[:show_all_tags].blank?
+      = link_to "More tags", "#", :"data-other-label" => "Less tags"
+    - else
+      = link_to "Less tags", "#", :"data-other-label" => "More tags"
   %div.cl

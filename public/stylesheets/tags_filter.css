@@ -47,9 +47,12 @@ ul#tags li.active {
 
 ul#tags li.all_tags {
   margin: 0 3px;
-  background: #c9c9ff;
-  border: 2px solid #c9c9ff;
-  right: 0px;
+  background: #ddd;
+  border: 1px solid #bbf;
+  border-bottom: 0 none;
+  right: 30px;
+  height: 20px;
+  bottom: 0;
   position: absolute;
 }
 

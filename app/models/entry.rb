@@ -15,7 +15,7 @@ class Entry < ActiveRecord::Base
     content
   end
 
-  def per_page; 20 end
+  def self.per_page; 10 end
 
   def self.from_feeds_tagged_with tag_list, options = nil
     options ||= {}

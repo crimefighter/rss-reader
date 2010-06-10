@@ -16,6 +16,16 @@ label {
   font-size: 11px;
 }
 
+h1#logo {
+  background: url(/images/logo.png) top left no-repeat;
+  width: 180px;
+  height: 34px;
+  position: absolute;
+  top: 10px;
+  left: 80%;
+  margin-left: 30px;
+}
+
 h3 { margin: 10px 0; }
 
 .drops-shadow {

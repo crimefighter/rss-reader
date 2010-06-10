@@ -3,6 +3,7 @@
 - require_css :entries
 - require_javascript "jquery/paging_keys"
 - require_javascript "jquery/qtip.fixed"
+- require_javascript "jquery/infinite_scroll"
 - require_javascript :entries
 
 = render "entries/top_bar"
@@ -11,25 +12,11 @@
   %li.search_bar
     - form_tag search_entries_path, :method => :get do
       %input{:type => :search, :name => :q, :value => params[:q], :placeholder => "Search"}
-      = icon_tag :search
   %span#feed_list
     = render "feeds/list"
 
 %ul#entries.drops-shadow.rounded-10
-  %li.tag_cloud.rounded-top-10.hidden
+  %li.tag_cloud.rounded-top-10{:class => params[:show_all_tags].blank? ? "hidden" : ""}
     - tag_cloud @all_tags, %w(w1 w2 w3 w4) do |tag, css_class|
-      = link_to tag.name, entries_path(:tagged => tag.name), :class => css_class
-  - @entries.each do |entry|
-    %li.hentry
-      %h2.header
-        = link_to entry.title, entry, :class => :"entry-title", :target => :_blank
-      %p.subheader
-        = link_to entry.feed, feed_entries_path(entry.feed)
-        = "#{time_ago_in_words entry.created_at} ago"
-        &bull;
-        = link_to "origin", entry.url, :class => :link_to_origin, :target => :_blank
-      - if current_user.display_full_entries_in_list?
-        - if (limit = current_user.limit_entries_in_list_to) > 0
-          = truncate entry.content, limit
-        - else
-          = entry_content entry
+      = link_to tag.name, entries_path(:tagged => tag.name, :show_all_tags => true), :class => "#{css_class} #{"active" if params[:tagged] == tag.name}"
+  = render :partial => "entries/entry", :collection => @entries
