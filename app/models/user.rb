@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   end
   acts_as_tagger
 
-  has_and_belongs_to_many :feeds
+  has_many :subscriptions
+  has_many :feeds, :through => :subscriptions
 
   def to_s
     email

@@ -1,12 +1,8 @@
 class Feed < ActiveRecord::Base
   has_many :entries
+  has_many :subscriptions
+  has_many :users, :through => :subscriptions
   acts_as_taggable
-  acts_as_configurable do |c|
-    c.boolean :headers_only, :default => false
-    c.integer :limit_entries_to, :default => 0
-    c.boolean :pictures_only, :default => false
-    c.boolean :plain_text_only, :default => false
-  end
   
   def to_i; id end
 
@@ -16,6 +12,10 @@ class Feed < ActiveRecord::Base
 
   def self.per_page
     20
+  end
+
+  def options_for(user)
+    self.subscriptions.find_by_user_id(user.id)
   end
 
   def fetch_entries

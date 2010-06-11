@@ -7,7 +7,4 @@
     &bull;
     = link_to "origin", entry.url, :class => :link_to_origin, :target => :_blank
   - if current_user.display_full_entries_in_list?
-    - if (limit = current_user.limit_entries_in_list_to) > 0
-      = truncate entry.content, limit
-    - else
-      = entry_content entry
+    %span.content= entry_content entry

@@ -1,15 +1,11 @@
 module EntriesHelper
   def entry_content entry
-    feed = entry.feed and content = entry.content
+    feed_options = entry.feed.options_for(current_user) and content = entry.content
     case
-      when feed.headers_only?
-        nil
-      when feed.pictures_only?
-        fetch_pictures content
-      when feed.plain_text_only?
-        feed.limit_entries_to.to_i == 0 ? plain_text(content) : truncate(plain_text(content), feed.limit_entries_to.to_i)
-      else
-        feed.limit_entries_to.to_i == 0 ? content : truncate_html(content, feed.limit_entries_to.to_i)
+      when feed_options.headers_only? then nil
+      when feed_options.pictures_only? then fetch_pictures(content)
+      when feed_options.plain_text_only? then plain_text(content)
+      else content
     end
   end
 

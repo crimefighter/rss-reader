@@ -8,5 +8,5 @@
       = link_to truncate(feed.name), feed_entries_path(feed), :class => active_class, :title => feed.name
       = link_to 'edit', "#", :class => :"feed_menu_icon"
       %div.feed_properties.hidden
-        =render "feeds/settings", :feed => feed
+        =render "subscriptions/form", :subscription => feed.subscriptions.find_by_user_id(current_user.id)
   %li= will_paginate feeds, :renderer => DotPaginationRenderer, :page_link_path => {:controller => :feeds, :action => :index, :format => :js}

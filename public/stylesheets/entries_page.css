@@ -72,6 +72,21 @@ ul#entries li h2.header {
 ul#entries li p.subheader {
   color: #999;
   padding: 5px 0 10px 0;
+  font-size: 12px;
+}
+
+ul#entries li span.content {
+  line-height: 20px;
+}
+
+ul#entries li span.content h1 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+ul#entries li span.content h2 {
+  font-size: 18px;
+  margin: 10px 0;
 }
 
 ul#entries li.tag_cloud {

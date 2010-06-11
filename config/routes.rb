@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :entries, :collection => [:search]
   map.resources :feeds, :has_many => :entries
+  map.resources :subscriptions, :only => [:update, :destroy]
 
   # routes for session control
   map.signin '/signin', :controller => 'user_sessions', :action => 'new', :conditions => {:method => :get}
