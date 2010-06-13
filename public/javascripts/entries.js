@@ -38,18 +38,25 @@ $(document).ready(function() {
     $open_link = $(this).prev("a.feed_menu_icon");
     var that = $(this);
     $open_link.qtip({
-      content: that.html(),
+      content: {
+        title: {
+          text: $feed_link.html(),
+          button: "Close"
+        },
+        text: that.html()
+      },
       position: { 
-        corner: { tooltip: 'topMiddle' },
-        adjust: { x: -130 }
+        target: $(document.body),
+        corner: 'center'
       },
       style: { 
         tip: true,
-        name: 'green', 
+        width: {min: 400},
+        name: 'light', 
         border: { radius: 5, color: '#1862d2' }, 
         background: '#fff', 
         'font-size': '12px' },
-      show: { when: { event: 'click' }, delay: 0 },
+      show: { when: { event: 'click' }, delay: 0, solo: 'true' },
       hide: { when: { event: 'unfocus' } }
     });
   });

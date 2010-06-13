@@ -1,7 +1,7 @@
 - form_for subscription, :html => {:class => :"feed_menu" } do |f|
-  %h3 Provide tags for this feed
+  %h3 Tag this feed
   %p
-    = f.text_field :tag_list, :value => f.object.feed.tags_from(current_user).join(", ")
+    = f.text_field :tag_list, :value => f.object.feed.tags_from(current_user).join(", "), :class => :"wide big"
   %p &nbsp;
   %h3 Tweak look of this feed on entries page
   %p

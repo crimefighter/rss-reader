@@ -64,3 +64,6 @@ h3 { margin: 10px 0; }
 .w2 { font-size: 1.2em; }
 .w3 { font-size: 1.6em; }
 .w4 { font-size: 2em; }
+
+input.wide { width: 100% }
+input.big { font-size: 16px }
