@@ -10,9 +10,9 @@ class Feed < ActiveRecord::Base
     name || url
   end
 
-  def self.per_page
-    20
-  end
+  @@per_page = 20
+  @@top_bar_tags = 7
+  cattr_reader :per_page, :top_bar_tags
 
   def options_for(user)
     self.subscriptions.find_by_user_id(user.id)

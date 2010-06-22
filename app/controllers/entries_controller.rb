@@ -40,6 +40,6 @@ class EntriesController < ApplicationController
   private
   def load_tags
     @all_tags = current_user.owned_tag_counts_from :feeds
-    @tags = @all_tags[0...7]
+    @tags = @all_tags[0...Feed.top_bar_tags]
   end
 end
