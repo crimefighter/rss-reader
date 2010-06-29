@@ -1,10 +1,10 @@
 module EntriesHelper
   def entry_content entry
     feed_options = entry.feed.options_for(current_user) and content = entry.content
-    case
-      when feed_options.headers_only? then nil
-      when feed_options.pictures_only? then fetch_pictures(content)
-      when feed_options.plain_text_only? then plain_text(content)
+    case feed_options.view_mode.try :to_sym
+      when :headers_only then nil
+      when :pictures_only then fetch_pictures(content)
+      when :plain_text_only then plain_text(content)
       else content
     end
   end

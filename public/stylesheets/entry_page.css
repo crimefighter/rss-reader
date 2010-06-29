@@ -5,14 +5,21 @@ body {
   background: #ddd;
 }
 
+h1#logo {
+  left: 15%;
+}
+
 div.entry {
   margin: 0 15%;
   padding: 20px;
   background: #fff;
+  line-height: 20px;
 }
 
 ul#tags {
   margin: 0 15%;
+  margin-top: 44px;
+  padding-left: 20px;
 }
 
 div.entry h1.entry_header {

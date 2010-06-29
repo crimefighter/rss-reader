@@ -1,18 +1,8 @@
 - form_for subscription, :html => {:class => :"feed_menu" } do |f|
   %h3 Tag this feed
-  %p
-    = f.text_field :tag_list, :value => f.object.feed.tags_from(current_user).join(", "), :class => :"wide big"
+  %p= f.text_field :tag_list, :value => f.object.feed.tags_from(current_user).join(", "), :class => :"wide big"
   %p &nbsp;
-  %h3 Tweak look of this feed on entries page
-  %p
-    = f.check_box :headers_only
-    = f.label :headers_only, "Display only headers"
-  %p
-    = f.check_box :pictures_only
-    = f.label :pictures_only, "Display only pictures"
-  %p
-    = f.check_box :plain_text_only
-    = f.label :plain_text_only, "Remove any media and formatting"
+  %h3 Choose how to display etries from this feed
+  %p= f.select :view_mode, options_for_select(Subscription.available_options, f.object.view_mode)
   %p &nbsp;
-  %p
-    = f.submit "Save"
+  %p= f.submit "Save"

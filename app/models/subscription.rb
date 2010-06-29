@@ -2,9 +2,13 @@ class Subscription < ActiveRecord::Base
   belongs_to :user
   belongs_to :feed
   acts_as_configurable do |c|
-    c.boolean :headers_only, :default => false
-    c.integer :limit_entries_to, :default => 0
-    c.boolean :pictures_only, :default => false
-    c.boolean :plain_text_only, :default => false
+    c.string :view_mode
+  end
+
+  def self.available_options
+    [ ["Full text", :full_text],
+      ["Display only headers", :headers_only],
+      ["Display only pictures", :pictures_only],
+      ["Remove any media and formatting", :plain_text_only] ]
   end
 end
