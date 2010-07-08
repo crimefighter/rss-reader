@@ -16,6 +16,25 @@ class SubscriptionsController < ApplicationController
     end
   end
 
+  def import
+  end
+
+  def process_imported
+    @opml_file = params[:opml_file] or return redirect_to import_subscriptions_path
+    @opml_tree = REXML::Document.new(@opml_file.read)
+    @subscriptions = {}
+    @opml_tree.elements.each('/opml/body/outline') do |tag| 
+      tag_name = tag.attributes['title']
+      tagged_subscriptions = []
+      tag.elements.each('outline') do |subscription|
+        tagged_subscriptions << subscription
+      end
+      feeds = Feed.bulk_find_or_create_from_opml(tagged_subscriptions)
+      current_user.subscribe_to feeds, :tag_with => tag_name
+    end
+    redirect_to entries_path
+  end
+
   def destroy
     @subscription = current_user.subscriptions.find(params[:id])
     @subscription.destroy

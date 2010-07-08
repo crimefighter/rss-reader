@@ -14,6 +14,18 @@ class Feed < ActiveRecord::Base
   @@top_bar_tags = 7
   cattr_reader :per_page, :top_bar_tags
 
+  def self.bulk_find_or_create_from_opml opml_feeds
+    feeds = []
+    opml_feeds.each do |opml_feed|
+      feeds << if feed = Feed.find_by_url(opml_feed.attributes['xmlUrl'])
+        feed
+      else
+        Feed.create(:url => opml_feed.attributes['xmlUrl'], :name => opml_feed.attributes['title'])
+      end
+    end
+    feeds
+  end
+
   def options_for(user)
     self.subscriptions.find_by_user_id(user.id)
   end

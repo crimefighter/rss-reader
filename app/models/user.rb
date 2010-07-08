@@ -25,4 +25,18 @@ class User < ActiveRecord::Base
   def entries
     Entry.scoped :conditions => {:feed_id => self.feed_ids}
   end
+
+  def subscribed? feed
+    subscriptions.find_by_feed_id(feed.to_i)
+  end
+
+  def subscribe_to feed_or_feeds, options=nil
+    options ||= {}
+    tag_list = options.fetch(:tag_with, nil)
+    feeds = feed_or_feeds.to_a.reject {|feed| subscribed? feed }
+    feeds.each do |feed|
+      subscriptions.create(:feed => feed)
+      tag feed, :with => tag_list, :on => :tags unless tag_list.blank?
+    end
+  end
 end

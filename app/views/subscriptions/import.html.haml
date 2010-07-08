@@ -1,0 +1,5 @@
+- form_tag process_imported_subscriptions_path, :multipart => true do
+  %h3 Upload your subscriptions
+  %p= file_field_tag :opml_file
+  %p &nbsp;
+  %p= submit_tag "Import"
