@@ -30,6 +30,7 @@ class SubscriptionsController < ApplicationController
         tagged_subscriptions << subscription
       end
       feeds = Feed.bulk_find_or_create_from_opml(tagged_subscriptions)
+      rake! "feeds:refresh_selected", :feed_ids => feeds.map(&:id).join(",")
       current_user.subscribe_to feeds, :tag_with => tag_name
     end
     redirect_to entries_path

@@ -16,7 +16,7 @@ class FeedsController < ApplicationController
     @feed = Feed.find_by_url(params[:feed][:url])
     if @feed.blank?
       @feed = Feed.create(params[:feed])
-      @feed.fetch_entries
+      rake! "feeds:refresh", :feed_id => @feed.id
     end
     current_user.feeds << @feed
     current_user.save

@@ -1,6 +1,6 @@
 class Feed < ActiveRecord::Base
   has_many :entries
-  has_many :subscriptions
+  has_many :subscriptions, :dependent => :destroy
   has_many :users, :through => :subscriptions
   acts_as_taggable
   
@@ -12,7 +12,8 @@ class Feed < ActiveRecord::Base
 
   @@per_page = 20
   @@top_bar_tags = 7
-  cattr_reader :per_page, :top_bar_tags
+  @@refresh_rate = 1.hour
+  cattr_reader :per_page, :top_bar_tags, :refresh_rate
 
   def self.bulk_find_or_create_from_opml opml_feeds
     feeds = []
@@ -20,7 +21,7 @@ class Feed < ActiveRecord::Base
       feeds << if feed = Feed.find_by_url(opml_feed.attributes['xmlUrl'])
         feed
       else
-        Feed.create(:url => opml_feed.attributes['xmlUrl'], :name => opml_feed.attributes['title'])
+        feed = Feed.create(:url => opml_feed.attributes['xmlUrl'], :name => opml_feed.attributes['title'])
       end
     end
     feeds
@@ -29,6 +30,14 @@ class Feed < ActiveRecord::Base
   def options_for(user)
     self.subscriptions.find_by_user_id(user.id)
   end
+
+  def refresh options = nil
+    options ||= {}
+    return unless (updated_at < Feed.refresh_rate.ago) or options.fetch(:force, false)
+    fetch_entries
+  end
+
+  protected
 
   def fetch_entries
     feed_xml = FeedNormalizer::FeedNormalizer.parse open url rescue nil
